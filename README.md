@@ -1,0 +1,64 @@
+# PathCredit Logger 
+A minimal activity logging app for Studor's PathCredit system.
+
+
+## How to run locally
+
+```bash
+git clone https://github.com/YOUR_USERNAME/pathcredit-logger.git
+cd pathcredit-logger
+npm install && npm run dev
+```
+
+Opens at `http://localhost:5173`. There is no backend or database or other things.
+
+> **Live demo:** [pathcredit-logger.vercel.app](https://pathcredit-logger.vercel.app) ← _replace with your URL_
+
+---
+
+## What I built
+
+**Log an activity** — a form with name, category (Academic / Technical / Cultural / Sports), and date. Validation catches empty fields and trims whitespace. Date is capped at today so future-dated entries can't slip in.
+
+**Activity feed** — all logged activities displayed newest-first, each showing name, category (color-coded), date, and PathCredit value. Filterable by category with live counts per tab.
+
+**Persistence** — activities survive page refresh and browser close via `localStorage`. Wrapped in try/catch so storage quota errors degrade gracefully (app still works, just doesn't persist).
+
+**PathCredit scoring** — each category has a weight (Academic: 10, Technical: 9, Cultural: 7, Sports: 6) defined in `src/utils/credits.js`. A live summary panel shows total credits earned and a per-category breakdown. The form previews the credit value before submission.
+
+**Edge cases handled:**
+- Empty form → field-level error messages, no submission
+- No activities yet → friendly empty state, not a blank screen
+- No results after filter → distinct "nothing in this category" state
+- Long activity names → truncated with ellipsis in feed
+- Delete → removes from feed and localStorage immediately
+
+---
+
+## What I'd add with another hour
+
+**More robust validation** — duplicate detection, character limits surfaced in the UI, date range warnings.
+
+**Sorting** — let users sort by date, category, or credits earned instead of just insertion order.
+
+**With a real backend:** expose a REST API (Node/Express or Django + DRF), store activities in Postgres, add user accounts so PathCredits are tied to a student profile, and enable cross-device sync. The `storage.js` utility is intentionally isolated so swapping `localStorage` for API calls is a one-file change.
+
+---
+
+## Project structure
+
+```
+src/
+  components/
+    ActivityForm.jsx   ← form with validation + credit preview
+    ActivityFeed.jsx   ← list rendering + empty states
+    FilterBar.jsx      ← category tabs with counts
+    CreditSummary.jsx  ← total + breakdown panel
+  utils/
+    storage.js         ← localStorage abstraction (drop-in replaceable)
+    credits.js         ← PathCredit weights + scoring helpers
+  App.jsx              ← state management + layout
+  main.jsx
+```
+
+---

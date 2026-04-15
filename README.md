@@ -12,19 +12,19 @@ npm install && npm run dev
 
 Opens at `http://localhost:5173`. There is no backend or database or other things.
 
-> **Live demo:** [pathcredit-logger.vercel.app](https://pathcredit-logger.vercel.app) ← _replace with your URL_
+**Live demo:** [studor-frontend.vercel.app](https://studor-frontend.vercel.app/) ← _replace with your URL_
 
 ---
 
 ## What I built
 
-**Log an activity** — a form with name, category (Academic / Technical / Cultural / Sports), and date. Validation catches empty fields and trims whitespace. Date is capped at today so future-dated entries can't slip in.
+**Log an activity** - A form with activity, category (Academic / Technical / Cultural / Sports), and date. Validation catches empty fields and trims whitespace. Date is capped at today so future-dated entries can't slip in.
 
-**Activity feed** — all logged activities displayed newest-first, each showing name, category (color-coded), date, and PathCredit value. Filterable by category with live counts per tab.
+**Activity feed** - All logged activities displayed newest-first, each showing name, category (color-coded), date, and PathCredit value. Filterable by category with live counts per tab.
 
-**Persistence** — activities survive page refresh and browser close via `localStorage`. Wrapped in try/catch so storage quota errors degrade gracefully (app still works, just doesn't persist).
+**Persistence** - Activities survive page refresh and browser close via `localStorage`. Wrapped in try/catch so storage quota errors degrade gracefully (app still works, just doesn't persist).
 
-**PathCredit scoring** — each category has a weight (Academic: 10, Technical: 9, Cultural: 7, Sports: 6) defined in `src/utils/credits.js`. A live summary panel shows total credits earned and a per-category breakdown. The form previews the credit value before submission.
+**PathCredit scoring** - Each category has a weight (Academic: 10, Technical: 9, Cultural: 7, Sports: 6) defined in `src/utils/credits.js`. A live summary panel shows total credits earned and a per-category breakdown. The form previews the credit value before submission.
 
 **Edge cases handled:**
 - Empty form → field-level error messages, no submission
@@ -37,9 +37,9 @@ Opens at `http://localhost:5173`. There is no backend or database or other thing
 
 ## What I'd add with another hour
 
-**More robust validation** — duplicate detection, character limits surfaced in the UI, date range warnings.
+**More robust validation** - Duplicate detection, character limits surfaced in the UI, date range warnings.
 
-**Sorting** — let users sort by date, category, or credits earned instead of just insertion order.
+**Sorting** - Let users sort by date, category, or credits earned instead of just insertion order.
 
 **With a real backend:** expose a REST API (Node/Express or Django + DRF), store activities in Postgres, add user accounts so PathCredits are tied to a student profile, and enable cross-device sync. The `storage.js` utility is intentionally isolated so swapping `localStorage` for API calls is a one-file change.
 

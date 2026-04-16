@@ -1,5 +1,5 @@
 # PathCredit Logger 
-A minimal activity logging app for Studor's PathCredit system.
+A minimal activity logging app for Studor's PathCredit system, this is made only in time period of 60 minutes including hosting (except the Readme part), it only have frontend part, so that it gets started with 2-3 max command, though as I have more time left for submission I have also made one with backend and database integrated along with authentication.
 
 
 ## How to run locally
@@ -12,13 +12,13 @@ npm install && npm run dev
 
 Opens at `http://localhost:5173`. There is no backend or database or other things.
 
-**Live demo:** [studor-frontend.vercel.app](https://studor-frontend.vercel.app/) ← _replace with your URL_
+**Live demo:** [studor-frontend.vercel.app](https://studor-frontend.vercel.app/) 
 
 ---
 
 ## What I built
 
-**Log an activity** - A form with activity, category (Academic / Technical / Cultural / Sports), and date. Validation catches empty fields and trims whitespace. Date is capped at today so future-dated entries can't slip in.
+**Log an activity** - A form with activity, category (Academic / Technical / Cultural / Sports), and date. Validation catches empty fields and trims whitespace.
 
 **Activity feed** - All logged activities displayed newest-first, each showing name, category (color-coded), date, and PathCredit value. Filterable by category with live counts per tab.
 
@@ -42,6 +42,12 @@ Opens at `http://localhost:5173`. There is no backend or database or other thing
 **Sorting** - Let users sort by date, category, or credits earned instead of just insertion order.
 
 **With a real backend:** expose a REST API (Node/Express or Django + DRF), store activities in Postgres, add user accounts so PathCredits are tied to a student profile, and enable cross-device sync. The `storage.js` utility is intentionally isolated so swapping `localStorage` for API calls is a one-file change.
+
+
+I already tried to do all this think, the link of the same can be accessed via : 
+1. Github Frotend : 
+2. Github Backend : 
+3. Live Demo : 
 
 ---
 

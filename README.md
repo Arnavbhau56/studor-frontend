@@ -44,10 +44,7 @@ Opens at `http://localhost:5173`. There is no backend or database or other thing
 **With a real backend:** expose a REST API (Node/Express or Django + DRF), store activities in Postgres, add user accounts so PathCredits are tied to a student profile, and enable cross-device sync. The `storage.js` utility is intentionally isolated so swapping `localStorage` for API calls is a one-file change.
 
 
-I already tried to do all this think, the link of the same can be accessed via : 
-1. Github Frotend : 
-2. Github Backend : 
-3. Live Demo : 
+I already tried to do all this things, the link of the same can be accessed via : https://github.com/Arnavbhau56/studor-2
 
 ---
 
